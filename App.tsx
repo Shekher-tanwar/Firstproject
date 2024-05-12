@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React , {useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   Button,
@@ -20,11 +20,18 @@ import {
 
 
 function App(): React.JSX.Element {
+
+  const [count, setCount] = useState(0)
+
+ const onClickHandler = () => {
+  setCount(count + 1)
+ }
   
   return (
     <View style={styles.body}>
-      <Text style={styles.text}>This is First Project.</Text> 
-      <Button title='Instagram Profile' onPress={()=>(Linking.openURL('https://www.instagram.com/shekhar_tanwar_01'))}></Button>
+      <Text style={styles.text}>{count}</Text>
+      <Button title='Add' onPress={onClickHandler}></Button>
+      <Text style={styles.text}>Yuo Clicked {count} times.</Text>
     </View>
   );
 }
